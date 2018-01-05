@@ -1,0 +1,10 @@
+sa se scr o procedura pl/sql care distribuie salariul sefului de departament sub forma de comision angajatilor din dept respectiv in functie de vechime.
+daca vechimea e < de 10 ani, toti angajatii primesc o cota parrte din 30% din salariul sefului. 
+daca vechimea e >= de 10 ani, suma distribuita tuturor angajatilor din categ e de 70% din salariul sefului.
+
+se vor data cel putin urm exceptii:"
+	- exista mai multi sefi intr-un dept ->suma distrib = suma salariilor acestor sefi
+	- exista sefi fara subalterni
+
+antetul liste:
+	denumire dept,	numar angajati,	nume sef, salariu sef, nume angajat, vechime angajat, comision primit

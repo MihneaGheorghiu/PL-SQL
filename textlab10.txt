@@ -1,0 +1,2 @@
+sa se scrie un trigger care insereaza intro tabela de  log o inregistrare oridecate ori se face o modificare de salariu in emp si deasemenea updateaza sau insereaza in tabela total salarii suma sal pe fiecare departament.Tabela total sal id_dep total_sal. 
+log are structura nume angajat sal vechi sal nou data operarii/ora min sec/ tipul operatieiei

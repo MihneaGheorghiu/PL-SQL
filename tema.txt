@@ -1,0 +1,20 @@
+sa se scrie un bloc sql care contine cel putin 1 functie pt calculul datei de plecare
+in concediu dupa urmatorul algoritm:
+
+daca vechimea angajatului < 10 ani, nu este sef, pleaca in concediu la 12 luni de la angajare
+daca vechimea < 10 ani, dar este sef, pleaca la 11 luni de la angajare
+daca vechimea >= 10 ani, nu este sef, pleaca la 10 luni de la angajare in concediu
+dava vechimea >= 10 ani, este sef, pleaca la 9 luni de la angajare in concediu
+
+antetul
+
+den departament, nume, sef departament, data angajare, data concediu
+
+se vor trata si exceptiile
+
+create table plecari
+(denumire_dep varchar2(30),
+nume varchar2(30),
+sef_depart varchar2(30),
+data_ang date,
+concediu date);

@@ -1,0 +1,69 @@
+
+  CREATE OR REPLACE PACKAGE "STUD1"."PACK1" AS
+
+procedure proc;
+function is_max(dept in number) return number;
+function is_min(dept in number) return number;
+
+END PACK1;
+/
+CREATE OR REPLACE PACKAGE BODY "STUD1"."PACK1" AS
+
+  procedure proc AS
+  
+        c_sal number := 0;
+	c_months number := 0;
+	c_dept varchar(30);
+	c_ename varchar(30);
+	cursor c is 
+		select d.dname dname, e.ename ename,e.deptno dept,e.sal sal, months_between(sysdate,e.hiredate) luni
+			from emp e, dept d 
+			where e.deptno = d.deptno;
+	w_c c%rowtype;
+
+	begin
+		dbms_output.put_line('VENIT'||'DEN_DEP'||'  '||'NUME'||'  '||'VENIT');
+		dbms_output.put_line('-------'||'-------'||'  '||'----'||'  '||'-----');
+
+		open c;
+		loop
+			fetch c into w_c;
+			exit when c%notfound;
+			if w_c.sal = is_max(w_c.dept) then
+                          c_dept := w_c.dname;
+                          c_ename := w_c.ename;
+                          c_sal := w_c.sal;
+                          dbms_output.put_line('Max '||c_dept||'  '||c_ename||'  '||c_sal);
+			end if;
+			
+                        if w_c.sal = is_min(w_c.dept) then
+                          c_dept := w_c.dname;
+                          c_ename := w_c.ename;
+                          c_sal := w_c.sal;
+                          dbms_output.put_line('Min '||c_dept||'  '||c_ename||'  '||c_sal);
+			end if;	
+	
+		end loop;
+		close c;
+		
+		
+    NULL;
+  END proc;
+
+  function is_max(dept in number) return number AS
+    val number;
+    begin
+      select max(sal) into val from emp where deptno = dept;
+      return val;
+  END is_max;
+  
+  function is_min(dept in number) return number AS
+    val number;
+    begin
+      select min(sal) into val from emp where deptno = dept;
+      return val;
+  END is_min;
+
+END PACK1;
+/
+ 

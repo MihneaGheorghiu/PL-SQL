@@ -1,0 +1,1 @@
+select dep DEPARTAMENT, total_sal SALARIU_TOTAL from total_dep;

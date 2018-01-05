@@ -1,0 +1,1 @@
+select nume_ang NUME_ANGAJAT, sal_vechi, sal_nou, data DATA_MODIFICARE, op OPERATIE from log_mesg;
